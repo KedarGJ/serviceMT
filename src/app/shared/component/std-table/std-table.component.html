@@ -1,0 +1,28 @@
+<table class="table table-bordered" *ngIf="getStdArray.length > 0; else nostdData">
+    <thead>
+        <tr>
+            <td>Sr no</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Email</td>
+            <td>Contact</td>
+            <td>Edit</td>
+            <td>Delete</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let std of getStdArray; let i = index">
+            <td>{{i +1}}</td>
+            <td>{{std.fname}}</td>
+            <td>{{std.lname}}</td>
+            <td>{{std.email}}</td>
+            <td>{{std.contact}}</td>
+            <td><button mat-button color="primary">Edit</button></td>
+             <td><button mat-button color="warn" (click)="onRemove(std.sId)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<ng-template #nostdData>
+    <p class="alert alert-warning">No data!!!</p>
+</ng-template>

@@ -1,0 +1,18 @@
+<ul class="list-group" 
+        *ngIf="todosArr; else noTodos">
+    <li class="list-group-item d-flex justify-content-between" *ngFor="let todo of todosArr"> 
+        <span>
+            {{todo.todoItem}}
+        </span>
+        <span>
+            <button class="btn btn-outline-info btn-sm mr-2">Edit</button>
+            <button class="btn btn-outline-danger btn-sm" (click)="onRemove(todo.todoId)">Remove</button>
+        </span>
+    </li>
+</ul>
+
+<ng-template #noTodos>
+    <p class="alert alert-info">
+        No todos Added yet
+    </p>
+</ng-template>

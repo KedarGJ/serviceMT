@@ -1,0 +1,12 @@
+<form #todoForm="ngForm" (ngSubmit)="onTodoAdd()">
+    <div class="form-group">
+        <label for="todo">TodoItem*</label>
+        <input type="text" name="todoItem" required class="form-control" id="todo" ngModel #todo="ngModel">
+        <span class="text-danger" *ngIf="todo.touched && todo.hasError('required')">
+            enter Todo item
+        </span>
+    </div>
+    <button type="submit" class="btn btn-info">
+       Add todo
+    </button>
+</form>
